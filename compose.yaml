@@ -8,7 +8,8 @@ services:
     stop_signal: SIGINT
     ports:
       - '8001:8001'
-
+    volumes:
+      - './app:/app'
     environment:
       FLASK_DEBUG: 1
       FLASK_ENV: 'development'

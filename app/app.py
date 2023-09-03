@@ -12,7 +12,7 @@ def hello():
 
 @app.route('/hes')
 def hes():
-	return "Hes! - Updated again 2"
+	return "Hes! - Updated again 4"
 
 
 @app.route('/spam-classifier', methods = ['POST'])

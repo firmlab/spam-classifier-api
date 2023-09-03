@@ -20,9 +20,10 @@ def spam_classifier():
 	loaded_model = joblib.load('spam_classifier.pkl')
 
 	text = request.form['text']
+	result = loaded_model.predict([text])
 
 	resp = {
-		'text': text
+		'result': result.tolist()
 	}
 
 	return jsonify(resp)

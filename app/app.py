@@ -35,14 +35,14 @@ def spam_classifier():
 
 @app.route('/spam-classifier-dl', methods = ['POST'])
 def spam_classifier_dl():
-	loaded_model = torch.load('spam_classifier_model_dl.pth') # it takes the loaded dictionary, not the path file itself
+	loaded_model = torch.load('spam_classifier_model_dl_2_1.pth') # it takes the loaded dictionary, not the path file itself
 	loaded_model.eval()
 
 	spam_label = {0: "Ham", 1: "Spam"}
 
 	text = [request.form['text']]
 
-	vectorizer = joblib.load('vectorizer.pkl')
+	vectorizer = joblib.load('vectorizer_2_1.pkl')
 
 	text = torch.tensor(vectorizer.transform(text).toarray(), dtype=torch.float32)
 	output = loaded_model(text).squeeze()
